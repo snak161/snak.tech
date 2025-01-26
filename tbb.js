@@ -18,7 +18,7 @@ $(document).ready(function () {
   
             // Add headers to the table dynamically
             $('#tableHeader').empty();
-            headers.forEach(header => $('#tableHeader').append(`<th>${header}</th>`));
+            headers.forEach(header => $('#tableHeader').append(`<thead>${header}</thead>`));
   
             // Populate rows in the table
             data.forEach(row => {
@@ -28,7 +28,7 @@ $(document).ready(function () {
   
             // Re-render the DataTable
             dataTable.destroy(); // Reset the table
-            $('#dataTable').DataTable(); // Reinitialize with the new data
+            $('#tbb').DataTable(); // Reinitialize with the new data
           },
           error: function (error) {
             console.error('Error parsing CSV:', error);

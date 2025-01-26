@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="icon" type="image/icon" href="images/favicon.ico" />
-
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
@@ -54,10 +54,12 @@
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.csv.js"></script>
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 			<script src="assets/js/csv_to_html_table.js"></script>
 
 			<script>
@@ -70,13 +72,13 @@
 				CsvToHtmlTable.init({
 					csv_path: "data/tbb.csv",
 					element: "table-container",
-					allow_download: true,
+					allow_download: false,
 					csv_options: {
 						separator: ",",
 						delimiter: '"'
 					},
 					datatables_options: {
-						paging: false
+						paging: true
 					},
 					custom_formatting: [
 						[4, format_link]

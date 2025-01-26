@@ -35,18 +35,7 @@
 					<section id="main" class="wrapper">
 						<div class="inner">
 							<h2 class="major">Textbausteinbibliothek</h2>
-							<table id="tbb" class="display">
-								<thead id="tableHeader">
-									<tr>
-										<!-- dynamic -->
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<!-- dynamic -->
-									</tr>
-								</tbody>
-							</table>
+							<div id="table-container"></div>
 						</div>
 					</section>
 
@@ -69,14 +58,31 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/csv_to_html_table.js"></script>
 
-		<!-- PapaParse -->
-			<script src="assets/js/papaparse.js"></script>
-
-		<!-- DataTables -->
-			<link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
-			<script src="https://cdn.datatables.net/2.2.1/js/dataTables.js"></script>
-			<script src="tbb.js"></script>
+			<script>
+				function format_link(link) {
+					if (link)
+						return "<a href='" + link + "' target='_blank'>" + link + "</a>";
+					else return "";
+				}
+		
+				CsvToHtmlTable.init({
+					csv_path: "data/tbb.csv",
+					element: "table-container",
+					allow_download: true,
+					csv_options: {
+						separator: ",",
+						delimiter: '"'
+					},
+					datatables_options: {
+						paging: false
+					},
+					custom_formatting: [
+						[4, format_link]
+					]
+				});
+			</script>
 				
 	</body>
 </html>
